@@ -9,7 +9,8 @@ class Landing extends Component {
         super();
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            clicked: false
         }
     }
 
@@ -19,10 +20,17 @@ class Landing extends Component {
         })
     }
 
+    handleToggle = () => {
+        this.setState({
+            clicked: !this.state.clicked
+        })
+    }
+
     handleRegister = () => {
         const {username, password} = this.state;
         axios.post('/api/auth/register', {username, password}).then(res => {
             this.props.getUser(res.data)
+            this.props.history.push('/home')
         })
     }
 
@@ -30,16 +38,26 @@ class Landing extends Component {
         const {username, password} = this.state;
         axios.post('/api/auth/login', {username, password}).then(res => {
             this.props.getUser(res.data)
+            this.props.history.push('/home')
         })
     }
 
     render(){
         return(
             <div className='landing'>
-                <img 
-                    className='App-logo'
+                {!this.state.clicked ? (
+                    <img 
+                    id='logo'
                     src={logo}
+                    alt='logo'
                 />
+                ) : (
+                    <img 
+                        id='clicked-logo'
+                        src={logo}
+                        alt='logo'
+                    />
+                )}
                 <div className='input-container'>
                     <label htmlFor='username'>Username:</label>
 
@@ -66,7 +84,9 @@ class Landing extends Component {
                     />
                 </div>
                 <div className='buttons'>
-                    <button onClick={this.handleLogin}>Log In</button>
+                    <button onClick={() => {
+                        this.handleLogin()
+                        this.handleToggle()}}>Log In</button>
                     <button onClick={this.handleRegister}>Register</button>
                 </div>
             </div>

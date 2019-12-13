@@ -7,6 +7,7 @@
   flex-direction: $direction;
 }
 
+
 .App {
   @include flexCenter(row);
 
@@ -15,24 +16,40 @@
   background: linear-gradient(90deg, rgba(0,2,36,1) 0%, rgba(45,72,253,1) 35%, rgba(34,193,195,1) 100%);
 }
 
-.App-logo {
+#logo {
   height: 20vmin;
   pointer-events: none;
   margin-bottom: 30px;
+  animation-name: logo-spin;
+  animation-duration: 3.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#clicked-logo {
+  height: 20vmin;
+  pointer-events: none;
+  margin-bottom: 30px;
+  animation-name: logo-slide;
+  animation-duration: .5s;
+  animation-timing-function: ease;
 }
 
-@keyframes App-logo-spin {
+@keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-slide {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
   }
 }
 
