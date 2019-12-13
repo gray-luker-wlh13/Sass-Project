@@ -1,0 +1,75 @@
+@import './variables';
+
+@mixin flexCenter($direction){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+.App {
+  @include flexCenter(row);
+
+  height: 100vh;
+  background: rgb(0,2,36);
+  background: linear-gradient(90deg, rgba(0,2,36,1) 0%, rgba(45,72,253,1) 35%, rgba(34,193,195,1) 100%);
+}
+
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+  margin-bottom: 30px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.landing {
+  @include flexCenter(column);
+
+  height: 400px;
+  width: 300px;
+  padding: 30px 50px;
+  border-radius: 10px;
+  border: $textColor 1px solid;
+
+  .input-container {
+    margin: 10px 0px;
+
+  }
+  input {
+    padding: 5px 10px;
+    border-radius: 20px;
+    border-style: none;
+  }
+  label:hover{
+    background: grey;
+  }
+  label {
+    color: $textColor;
+    margin-right: 10px;
+  }
+  button {
+    margin: 10px;
+    background-color: $btnColor;
+    border-style: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+  }
+}
+
+

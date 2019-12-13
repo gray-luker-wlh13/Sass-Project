@@ -1,38 +1,104 @@
 .App {
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100vh;
+  background: #000224;
+  background: -webkit-gradient(linear, left top, right top, from(#000224), color-stop(35%, #2d48fd), to(#22c1c3));
+  background: linear-gradient(90deg, #000224 0%, #2d48fd 35%, #22c1c3 100%);
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
+  margin-bottom: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    -webkit-animation: App-logo-spin infinite 20s linear;
+            animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
+
+.landing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 400px;
+  width: 300px;
+  padding: 30px 50px;
+  border-radius: 10px;
+  border: #dfdfdf 1px solid;
+}
+
+.landing .input-container {
+  margin: 10px 0px;
+}
+
+.landing input {
+  padding: 5px 10px;
+  border-radius: 20px;
+  border-style: none;
+}
+
+.landing label:hover {
+  background: grey;
+}
+
+.landing label {
+  color: #dfdfdf;
+  margin-right: 10px;
+}
+
+.landing button {
+  margin: 10px;
+  background-color: #38928e;
+  border-style: none;
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: white;
+}
+/*# sourceMappingURL=App.css.map */
