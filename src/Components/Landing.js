@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import logo from '../assets/helo_logo.png';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import {getUser} from '../redux/reducer';
 
 class Landing extends Component {
     constructor(){
@@ -13,6 +16,20 @@ class Landing extends Component {
     handleInput = (e) => {
         this.setState({
             [e.target.name]: e.target.value
+        })
+    }
+
+    handleRegister = () => {
+        const {username, password} = this.state;
+        axios.post('/api/auth/register', {username, password}).then(res => {
+            this.props.getUser(res.data)
+        })
+    }
+
+    handleLogin = () => {
+        const {username, password} = this.state;
+        axios.post('/api/auth/login', {username, password}).then(res => {
+            this.props.getUser(res.data)
         })
     }
 
@@ -49,12 +66,12 @@ class Landing extends Component {
                     />
                 </div>
                 <div className='buttons'>
-                    <button>Log In</button>
-                    <button>Register</button>
+                    <button onClick={this.handleLogin}>Log In</button>
+                    <button onClick={this.handleRegister}>Register</button>
                 </div>
             </div>
         )
     }
 }
 
-export default Landing;
+export default connect(null, {getUser})(Landing);
