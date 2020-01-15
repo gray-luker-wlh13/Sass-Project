@@ -14,7 +14,7 @@ module.exports = {
         const hash = bcrypt.hashSync(password, salt);
         let newUser = await db.register_user([isAdmin, username, hash]);
         newUser = newUser[0];
-        session.user = {isAdmin: user.is_admin, username: user.username, id: user.id};
+        session.user = {isAdmin: user.isAdmin, username: user.username, id: user.id};
         res.status(200).send(session.user);
     },
 

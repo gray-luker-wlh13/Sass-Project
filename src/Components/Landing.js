@@ -3,6 +3,7 @@ import logo from '../assets/helo_logo.png';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {getUser} from '../redux/reducer';
+import {withRouter} from 'react-router-dom';
 
 class Landing extends Component {
     constructor(){
@@ -94,4 +95,4 @@ class Landing extends Component {
     }
 }
 
-export default connect(null, {getUser})(Landing);
+export default withRouter(connect(null, {getUser})(Landing));

@@ -89,4 +89,41 @@
   }
 }
 
+@media (max-width: 450px){
+  .landing {
+    @include flexCenter(column);
+  
+    height: 250px;
+    width: 150px;
+    padding: 30px 50px;
+    border-radius: 10px;
+    border: $textColor 1px solid;
+  
+    .input-container {
+      margin: 10px 0px;
+  
+    }
+    input {
+      padding: 2.5px 5px;
+      border-radius: 10px;
+      border-style: none;
+    }
+    label:hover{
+      background: grey;
+    }
+    label {
+      color: $textColor;
+      margin-right: 2px;
+    }
+    button {
+      margin: 10px;
+      background-color: $btnColor;
+      border-style: none;
+      padding: 5px 15px;
+      border-radius: 20px;
+      color: white;
+    }
+  }
+}
+
 
